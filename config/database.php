@@ -6,8 +6,8 @@
 class Database {
     private $host = 'localhost';
     private $db_name = 'idfzgvte_palmicoil_db';
-    private $username = 'root';
-    private $password = ''; // Empty for XAMPP default
+    private $username = 'idfzgvte_palmicoil_db'; // Changed from 'root'
+    private $password = 'Dilshan@2002'; // You need to set this
     private $conn;
 
     public function getConnection() {
