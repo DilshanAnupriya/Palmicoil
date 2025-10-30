@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌴 Palm Oil Co. - Premium Golden Quality Palm Oil Products</title>
+    <meta name="description" content="Leading supplier of premium quality palm oil products. Sustainable and high-quality palm oil with golden excellence for all your needs.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand animate-pulse" href="index.html">
+                🌴 Palm Oil Co.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Background Slideshow -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="slideshow-nav">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+        </div>
+        
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title animate-fade-up">
+                        Premium <span style="color: var(--gold-primary);">Golden</span> Palm Oil
+                    </h1>
+                    <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s;">
+                        Sustainable excellence meets golden quality. We provide the finest palm oil products with a commitment to environmental responsibility and premium standards.
+                    </p>
+                    <div class="d-flex gap-3 animate-fade-up" style="animation-delay: 0.4s;">
+                        <a href="products.php" class="btn btn-primary btn-lg">
+                            <i class="fas fa-shopping-cart me-2"></i> Explore Products
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone me-2"></i> Get Quote
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image animate-float">
+                    <div class="text-center">
+                        <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Palm Tree SVG -->
+                            <defs>
+                                <linearGradient id="palmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Palm Tree Trunk -->
+                            <rect x="180" y="200" width="40" height="150" fill="url(#trunkGradient)" rx="20"/>
+                            
+                            <!-- Palm Leaves -->
+                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(-30 200 180)"/>
+                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(0 200 180)"/>
+                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(30 200 180)"/>
+                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(60 200 180)"/>
+                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(-60 200 180)"/>
+                            
+                            <!-- Palm Fruits -->
+                            <circle cx="170" cy="190" r="8" fill="#FFD700"/>
+                            <circle cx="185" cy="195" r="8" fill="#FFA500"/>
+                            <circle cx="200" cy="190" r="8" fill="#FFD700"/>
+                            <circle cx="215" cy="195" r="8" fill="#FFA500"/>
+                            <circle cx="230" cy="190" r="8" fill="#FFD700"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section bg-light-green">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title scroll-animate">Why Choose Our Golden Palm Oil?</h2>
+                    <p class="section-subtitle scroll-animate">We are committed to providing the highest quality palm oil products with sustainable practices and golden excellence.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center scroll-animate">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf fa-4x" style="color: var(--green-primary);"></i>
+                        </div>
+                        <h4>100% Sustainable</h4>
+                        <p class="text-muted">Environmentally responsible palm oil production with certified sustainable farming practices and zero deforestation commitment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center scroll-animate" style="animation-delay: 0.2s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-award fa-4x" style="color: var(--gold-primary);"></i>
+                        </div>
+                        <h4>Golden Quality</h4>
+                        <p class="text-muted">Premium golden standards with rigorous testing, quality control processes, and international certifications for excellence.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center scroll-animate" style="animation-delay: 0.4s;">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast fa-4x" style="color: var(--green-secondary);"></i>
+                        </div>
+                        <h4>Lightning Delivery</h4>
+                        <p class="text-muted">Ultra-fast and reliable worldwide delivery with premium packaging, temperature control, and real-time tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title scroll-animate">Golden Featured Products</h2>
+                    <p class="section-subtitle scroll-animate">Discover our most popular premium palm oil products with golden quality standards.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card scroll-animate">
+                        <div class="product-image">
+                            <i class="fas fa-oil-can fa-4x" style="color: var(--white);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">Premium Crude Palm Oil</h5>
+                            <p class="text-muted mb-3">High-quality crude palm oil perfect for industrial and commercial applications.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$850/MT</span>
+                                <a href="products.php" class="btn btn-secondary btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card scroll-animate" style="animation-delay: 0.2s;">
+                        <div class="product-image">
+                            <i class="fas fa-flask fa-4x" style="color: var(--white);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">Refined Palm Oil</h5>
+                            <p class="text-muted mb-3">Premium refined palm oil with golden clarity for food and cosmetic industries.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$920/MT</span>
+                                <a href="products.php" class="btn btn-secondary btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card scroll-animate" style="animation-delay: 0.4s;">
+                        <div class="product-image">
+                            <i class="fas fa-seedling fa-4x" style="color: var(--white);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">Palm Kernel Oil</h5>
+                            <p class="text-muted mb-3">Specialty palm kernel oil with exceptional properties for premium applications.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$1,150/MT</span>
+                                <a href="products.php" class="btn btn-secondary btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="products.php" class="btn btn-primary btn-lg scroll-animate">
+                    <i class="fas fa-eye me-2"></i> Explore All Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-light-gold">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="scroll-animate">
+                        <h3 class="display-4 fw-bold" style="color: var(--green-dark);">15+</h3>
+                        <p class="lead">Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="scroll-animate" style="animation-delay: 0.1s;">
+                        <h3 class="display-4 fw-bold" style="color: var(--gold-dark);">50+</h3>
+                        <p class="lead">Countries Served</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="scroll-animate" style="animation-delay: 0.2s;">
+                        <h3 class="display-4 fw-bold" style="color: var(--green-dark);">1M+</h3>
+                        <p class="lead">Tons Delivered</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="scroll-animate" style="animation-delay: 0.3s;">
+                        <h3 class="display-4 fw-bold" style="color: var(--gold-dark);">99%</h3>
+                        <p class="lead">Customer Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="col-lg-8 mx-auto">
+                        <h3 class="display-5 fw-bold mb-4 scroll-animate">Ready to Experience Golden Excellence?</h3>
+                        <p class="lead mb-4 scroll-animate" style="animation-delay: 0.2s;">
+                            Join thousands of satisfied customers worldwide. Contact us today for bulk orders, custom requirements, and premium palm oil solutions.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center scroll-animate" style="animation-delay: 0.4s;">
+                            <a href="contact.html" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-envelope me-2"></i> Get Instant Quote
+                            </a>
+                            <a href="products.php" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-phone me-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
+                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
+                    <div class="social-links">
+                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Premium Products</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Golden Crude Palm Oil</a></li>
+                        <li><a href="#">Premium Refined Palm Oil</a></li>
+                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
+                        <li><a href="#">Custom Blends</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
+                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
+                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: var(--gold-primary);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sustainability</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
