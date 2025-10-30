@@ -5,9 +5,9 @@
 
 class Database {
     private $host = 'localhost';
-    private $db_name = 'idfzgvte_palmicoil_db';
-    private $username = 'idfzgvte_palmicoil_db'; // Changed from 'root'
-    private $password = 'Dilshan@2002'; // You need to set this
+    private $db_name = 'palmicoil_db';
+    private $username = 'root';
+    private $password = '';
     private $conn;
 
     public function getConnection() {
@@ -22,7 +22,9 @@ class Database {
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch(PDOException $exception) {
-            echo "Connection error: " . $exception->getMessage();
+            // Log error instead of echoing it
+            error_log("Database connection error: " . $exception->getMessage());
+            return null;
         }
         
         return $this->conn;

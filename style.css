@@ -736,3 +736,174 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gradient-secondary);
 }
+
+/* Our Strengths Section */
+.feature-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-medium);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-gold);
+    border-color: var(--gold-primary);
+}
+
+.feature-icon {
+    flex-shrink: 0;
+}
+
+.feature-card h4 {
+    color: var(--green-dark);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Certifications & Awards Section */
+.certification-card {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-medium);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-green);
+    border-color: var(--green-primary);
+}
+
+.certification-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certification-logo img {
+    transition: var(--transition-fast);
+}
+
+.certification-card:hover .certification-logo img {
+    transform: scale(1.1);
+}
+
+.certification-name {
+    color: var(--green-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* FAQ Section */
+.accordion-item {
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 10px !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-fast);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: var(--gold-primary);
+}
+
+.accordion-button {
+    background: var(--white);
+    border: none;
+    padding: 1.5rem;
+    font-weight: 600;
+    color: var(--green-dark);
+    transition: var(--transition-fast);
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--green-light) 100%);
+    color: var(--green-dark);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    border-color: var(--gold-primary);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23228B22'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transition: var(--transition-fast);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background: var(--white);
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+/* Background Variations */
+.bg-light-green {
+    background: linear-gradient(135deg, rgba(144, 238, 144, 0.1) 0%, rgba(255, 239, 148, 0.1) 100%);
+}
+
+.bg-light-gold {
+    background: linear-gradient(135deg, rgba(255, 239, 148, 0.2) 0%, rgba(144, 238, 144, 0.1) 100%);
+}
+
+/* Responsive Design for New Sections */
+@media (max-width: 768px) {
+    .feature-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-card.d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-icon {
+        margin-bottom: 1rem;
+        margin-right: 0 !important;
+    }
+    
+    .certification-card {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .accordion-button {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .certification-name {
+        font-size: 1rem;
+    }
+    
+    .feature-icon i,
+    .certification-logo i {
+        font-size: 2.5rem !important;
+    }
+}

@@ -7,26 +7,21 @@ $db = getDB();
 // Handle delete action
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
-    $stmt = $db->prepare("DELETE FROM products WHERE id = ?");
+    $stmt = $db->prepare("DELETE FROM certifications_awards WHERE id = ?");
     $stmt->execute([$id]);
-    redirect(ADMIN_URL . '/products.php');
+    redirect(ADMIN_URL . '/certifications.php');
 }
 
-// Get all products with category names
-$stmt = $db->query("
-    SELECT p.*, c.name as category_name 
-    FROM products p 
-    LEFT JOIN categories c ON p.category_id = c.id 
-    ORDER BY p.created_at DESC
-");
-$products = $stmt->fetchAll();
+// Get all certifications
+$stmt = $db->query("SELECT * FROM certifications_awards ORDER BY sort_order ASC, created_at DESC");
+$certifications = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Palm Oil Admin</title>
+    <title>Certifications & Awards - Palm Oil Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -47,11 +42,12 @@ $products = $stmt->fetchAll();
             background: #f8f9fa;
             min-height: 100vh;
         }
-        .product-image {
+        .cert-logo {
             width: 60px;
             height: 60px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 8px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
@@ -69,7 +65,7 @@ $products = $stmt->fetchAll();
                         <a class="nav-link" href="dashboard.php">
                             <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                         </a>
-                        <a class="nav-link active" href="products.php">
+                        <a class="nav-link" href="products.php">
                             <i class="fas fa-box me-2"></i> Products
                         </a>
                         <a class="nav-link" href="categories.php">
@@ -81,14 +77,14 @@ $products = $stmt->fetchAll();
                         <a class="nav-link" href="slideshow.php">
                             <i class="fas fa-images me-2"></i> Slideshow
                         </a>
-                        <a class="nav-link" href="faqs.php">
-                            <i class="fas fa-question-circle me-2"></i> FAQs
+                        <a class="nav-link" href="strengths.php">
+                            <i class="fas fa-star me-2"></i> Our Strengths
                         </a>
-                        <a class="nav-link" href="certifications.php">
+                        <a class="nav-link active" href="certifications.php">
                             <i class="fas fa-certificate me-2"></i> Certifications
                         </a>
-                        <a class="nav-link" href="strengths.php">
-                            <i class="fas fa-star me-2"></i> Strengths
+                        <a class="nav-link" href="faqs.php">
+                            <i class="fas fa-question-circle me-2"></i> FAQs
                         </a>
                         <a class="nav-link" href="pages.php">
                             <i class="fas fa-file-alt me-2"></i> Pages
@@ -114,20 +110,20 @@ $products = $stmt->fetchAll();
             <div class="col-md-9 col-lg-10">
                 <div class="main-content p-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2>Products</h2>
-                        <a href="product-form.php" class="btn btn-success">
-                            <i class="fas fa-plus me-2"></i> Add Product
+                        <h2>Certifications & Awards</h2>
+                        <a href="certification-form.php" class="btn btn-success">
+                            <i class="fas fa-plus me-2"></i> Add Certification
                         </a>
                     </div>
                     
                     <div class="card">
                         <div class="card-body">
-                            <?php if (empty($products)): ?>
+                            <?php if (empty($certifications)): ?>
                                 <div class="text-center py-5">
-                                    <i class="fas fa-box fa-3x text-muted mb-3"></i>
-                                    <h5 class="text-muted">No products found</h5>
-                                    <p class="text-muted">Start by adding your first product.</p>
-                                    <a href="product-form.php" class="btn btn-success">Add Product</a>
+                                    <i class="fas fa-certificate fa-3x text-muted mb-3"></i>
+                                    <h5 class="text-muted">No certifications found</h5>
+                                    <p class="text-muted">Start by adding your first certification.</p>
+                                    <a href="certification-form.php" class="btn btn-success">Add Certification</a>
                                 </div>
                             <?php else: ?>
                                 <div class="table-responsive">
@@ -135,60 +131,58 @@ $products = $stmt->fetchAll();
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Name</th>
-                                                <th>Category</th>
-                                                <th>Price</th>
+                                                <th>Title</th>
+                                                <th>Type</th>
+                                                <th>Organization</th>
+                                                <th>Order</th>
                                                 <th>Status</th>
-                                                <th>Featured</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($products as $product): ?>
+                                            <?php foreach ($certifications as $cert): ?>
                                                 <tr>
                                                     <td>
-                                                        <?php if ($product['image']): ?>
-                                                            <img src="<?php echo UPLOAD_URL . $product['image']; ?>" 
-                                                                 alt="<?php echo htmlspecialchars($product['name']); ?>" 
-                                                                 class="product-image">
+                                                        <?php if ($cert['image']): ?>
+                                                            <img src="<?php echo UPLOAD_URL . $cert['image']; ?>" 
+                                                                 alt="<?php echo htmlspecialchars($cert['title']); ?>" 
+                                                                 class="cert-logo">
                                                         <?php else: ?>
-                                                            <div class="product-image bg-light d-flex align-items-center justify-content-center">
-                                                                <i class="fas fa-image text-muted"></i>
+                                                            <div class="cert-logo bg-light d-flex align-items-center justify-content-center">
+                                                                <i class="fas fa-certificate text-muted"></i>
                                                             </div>
                                                         <?php endif; ?>
                                                     </td>
                                                     <td>
-                                                        <strong><?php echo htmlspecialchars($product['name']); ?></strong>
-                                                        <br>
-                                                        <small class="text-muted"><?php echo htmlspecialchars($product['short_description']); ?></small>
-                                                    </td>
-                                                    <td><?php echo htmlspecialchars($product['category_name'] ?? 'No Category'); ?></td>
-                                                    <td>
-                                                        <?php if ($product['price']): ?>
-                                                            $<?php echo number_format($product['price'], 2); ?>
-                                                        <?php else: ?>
-                                                            <span class="text-muted">Contact for price</span>
-                                                        <?php endif; ?>
+                                                        <strong><?php echo htmlspecialchars($cert['title']); ?></strong>
                                                     </td>
                                                     <td>
-                                                        <span class="badge bg-<?php echo $product['status'] == 'active' ? 'success' : 'secondary'; ?>">
-                                                            <?php echo ucfirst($product['status']); ?>
+                                                        <span class="badge bg-<?php echo $cert['type'] == 'certification' ? 'primary' : 'success'; ?>">
+                                                            <?php echo ucfirst($cert['type']); ?>
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <?php if ($product['featured']): ?>
-                                                            <i class="fas fa-star text-warning"></i>
-                                                        <?php endif; ?>
+                                                        <small class="text-muted">
+                                                            <?php echo htmlspecialchars($cert['issuing_organization'] ?? 'N/A'); ?>
+                                                        </small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-secondary"><?php echo $cert['sort_order']; ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-<?php echo $cert['status'] == 'active' ? 'success' : 'secondary'; ?>">
+                                                            <?php echo ucfirst($cert['status']); ?>
+                                                        </span>
                                                     </td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
-                                                            <a href="product-form.php?id=<?php echo $product['id']; ?>" 
+                                                            <a href="certification-form.php?id=<?php echo $cert['id']; ?>" 
                                                                class="btn btn-outline-primary">
                                                                 <i class="fas fa-edit"></i>
                                                             </a>
-                                                            <a href="products.php?delete=<?php echo $product['id']; ?>" 
+                                                            <a href="certifications.php?delete=<?php echo $cert['id']; ?>" 
                                                                class="btn btn-outline-danger"
-                                                               onclick="return confirm('Are you sure you want to delete this product?')">
+                                                               onclick="return confirm('Are you sure you want to delete this certification?')">
                                                                 <i class="fas fa-trash"></i>
                                                             </a>
                                                         </div>

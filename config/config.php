@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // Define constants
-define('SITE_URL', 'http://palmicoil.com/website_f7ccb7b6');
+define('SITE_URL', 'http://palmicoil.com');
 define('ADMIN_URL', SITE_URL . '/admin');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/uploads/');
