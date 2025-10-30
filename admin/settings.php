@@ -109,6 +109,31 @@ while ($row = $stmt->fetch()) {
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="blogs.php">
+                                <i class="fas fa-blog me-2"></i>Blogs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="slideshow.php">
+                                <i class="fas fa-images me-2"></i>Slideshow
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="strengths.php">
+                                <i class="fas fa-star me-2"></i>Our Strengths
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="certifications.php">
+                                <i class="fas fa-certificate me-2"></i>Certifications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="faqs.php">
+                                <i class="fas fa-question-circle me-2"></i>FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="pages.php">
                                 <i class="fas fa-file-alt me-2"></i>Pages
                             </a>
@@ -124,6 +149,11 @@ while ($row = $stmt->fetch()) {
                             </a>
                         </li>
                         <li class="nav-item mt-3">
+                            <a class="nav-link text-white" href="../index.php" target="_blank">
+                                <i class="fas fa-external-link-alt me-2"></i>View Site
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="logout.php">
                                 <i class="fas fa-sign-out-alt me-2"></i>Logout
                             </a>

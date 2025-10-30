@@ -142,6 +142,21 @@ if ($_POST) {
                         <a class="nav-link" href="categories.php">
                             <i class="fas fa-tags me-2"></i> Categories
                         </a>
+                        <a class="nav-link" href="blogs.php">
+                            <i class="fas fa-blog me-2"></i> Blogs
+                        </a>
+                        <a class="nav-link" href="slideshow.php">
+                            <i class="fas fa-images me-2"></i> Slideshow
+                        </a>
+                        <a class="nav-link" href="strengths.php">
+                            <i class="fas fa-star me-2"></i> Our Strengths
+                        </a>
+                        <a class="nav-link" href="certifications.php">
+                            <i class="fas fa-certificate me-2"></i> Certifications
+                        </a>
+                        <a class="nav-link" href="faqs.php">
+                            <i class="fas fa-question-circle me-2"></i> FAQs
+                        </a>
                         <a class="nav-link" href="pages.php">
                             <i class="fas fa-file-alt me-2"></i> Pages
                         </a>

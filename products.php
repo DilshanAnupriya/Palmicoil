@@ -4,6 +4,11 @@ require_once 'config/config.php';
 
 $db = getDB();
 
+// Check if database connection is successful
+if (!$db) {
+    die("Database connection failed. Please check your database configuration.");
+}
+
 // Get categories for filter
 $categoriesQuery = "SELECT * FROM categories WHERE status = 'active' ORDER BY name";
 $categories = $db->query($categoriesQuery)->fetchAll(PDO::FETCH_ASSOC);

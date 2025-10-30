@@ -117,6 +117,9 @@ if (!$isEdit) {
                         <a class="nav-link" href="blogs.php">
                             <i class="fas fa-blog me-2"></i> Blogs
                         </a>
+                        <a class="nav-link" href="slideshow.php">
+                            <i class="fas fa-images me-2"></i> Slideshow
+                        </a>
                         <a class="nav-link" href="strengths.php">
                             <i class="fas fa-star me-2"></i> Our Strengths
                         </a>

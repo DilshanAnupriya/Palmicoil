@@ -13,7 +13,7 @@ if (isset($_GET['delete'])) {
 }
 
 // Get all FAQs
-$stmt = $db->query("SELECT * FROM faqs ORDER BY display_order ASC, created_at DESC");
+$stmt = $db->query("SELECT * FROM faqs ORDER BY sort_order ASC, created_at DESC");
 $faqs = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>

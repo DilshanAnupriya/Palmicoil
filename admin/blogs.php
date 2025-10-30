@@ -1,17 +1,11 @@
 <?php
-session_start();
-require_once '../config/database.php';
 require_once '../config/config.php';
+require_once '../config/database.php';
 
-// Check if user is logged in
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: login.php');
-    exit();
-}
+// Check if admin is logged in
+requireLogin();
 
-// Initialize database connection
-$database = new Database();
-$pdo = $database->getConnection();
+$db = getDB();
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (!isset($error_message)) {
                     $published_at = ($status === 'published') ? date('Y-m-d H:i:s') : null;
                     
-                    $stmt = $pdo->prepare("INSERT INTO blogs (title, slug, excerpt, content, featured_image, author, status, featured, published_at, meta_title, meta_description, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO blogs (title, slug, excerpt, content, featured_image, author, status, featured, published_at, meta_title, meta_description, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     $stmt->execute([$title, $slug, $excerpt, $content, $image_path, $author, $status, $featured, $published_at, $meta_title, $meta_description, $tags]);
                     
                     $success_message = "Blog post added successfully!";
@@ -72,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $tags = sanitizeInput($_POST['tags']);
                 
                 // Get current blog data
-                $stmt = $pdo->prepare("SELECT * FROM blogs WHERE id = ?");
+                $stmt = $db->prepare("SELECT * FROM blogs WHERE id = ?");
                 $stmt->execute([$id]);
                 $current_blog = $stmt->fetch();
                 
@@ -108,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $published_at = null;
                     }
                     
-                    $stmt = $pdo->prepare("UPDATE blogs SET title = ?, slug = ?, excerpt = ?, content = ?, featured_image = ?, author = ?, status = ?, featured = ?, published_at = ?, meta_title = ?, meta_description = ?, tags = ?, updated_at = NOW() WHERE id = ?");
+                    $stmt = $db->prepare("UPDATE blogs SET title = ?, slug = ?, excerpt = ?, content = ?, featured_image = ?, author = ?, status = ?, featured = ?, published_at = ?, meta_title = ?, meta_description = ?, tags = ?, updated_at = NOW() WHERE id = ?");
                     $stmt->execute([$title, $slug, $excerpt, $content, $image_path, $author, $status, $featured, $published_at, $meta_title, $meta_description, $tags, $id]);
                     
                     $success_message = "Blog post updated successfully!";
@@ -119,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $id = (int)$_POST['id'];
                 
                 // Get blog data to delete image
-                $stmt = $pdo->prepare("SELECT featured_image FROM blogs WHERE id = ?");
+                $stmt = $db->prepare("SELECT featured_image FROM blogs WHERE id = ?");
                 $stmt->execute([$id]);
                 $blog = $stmt->fetch();
                 
@@ -127,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     unlink('../' . $blog['featured_image']);
                 }
                 
-                $stmt = $pdo->prepare("DELETE FROM blogs WHERE id = ?");
+                $stmt = $db->prepare("DELETE FROM blogs WHERE id = ?");
                 $stmt->execute([$id]);
                 
                 $success_message = "Blog post deleted successfully!";
@@ -137,14 +131,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch all blogs
-$stmt = $pdo->query("SELECT * FROM blogs ORDER BY created_at DESC");
+$stmt = $db->query("SELECT * FROM blogs ORDER BY created_at DESC");
 $blogs = $stmt->fetchAll();
 
 // Get blog for editing
 $edit_blog = null;
 if (isset($_GET['edit'])) {
     $edit_id = (int)$_GET['edit'];
-    $stmt = $pdo->prepare("SELECT * FROM blogs WHERE id = ?");
+    $stmt = $db->prepare("SELECT * FROM blogs WHERE id = ?");
     $stmt->execute([$edit_id]);
     $edit_blog = $stmt->fetch();
 }

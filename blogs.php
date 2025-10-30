@@ -1,12 +1,11 @@
 <?php
-require_once 'config/database.php';
+require_once 'config/config.php';
 
 // Initialize database connection
-$database = new Database();
-$pdo = $database->getConnection();
+$db = getDB();
 
 // Handle database connection errors
-if (!$pdo) {
+if (!$db) {
     // Fallback data when database is not available
     $blogs = [];
     $featured_blogs = [];
@@ -31,20 +30,19 @@ if (!empty($search)) {
 
 // Get total count for pagination
 $count_sql = "SELECT COUNT(*) FROM blogs WHERE status = 'published'" . $search_condition;
-$count_stmt = $pdo->prepare($count_sql);
+$count_stmt = $db->prepare($count_sql);
 $count_stmt->execute($search_params);
 $total_posts = $count_stmt->fetchColumn();
 $total_pages = ceil($total_posts / $posts_per_page);
 
 // Fetch blogs
-$sql = "SELECT * FROM blogs WHERE status = 'published'" . $search_condition . " ORDER BY featured DESC, published_at DESC LIMIT ? OFFSET ?";
-$params = array_merge($search_params, [$posts_per_page, $offset]);
-$stmt = $pdo->prepare($sql);
-$stmt->execute($params);
+$sql = "SELECT * FROM blogs WHERE status = 'published'" . $search_condition . " ORDER BY featured DESC, published_at DESC LIMIT " . (int)$posts_per_page . " OFFSET " . (int)$offset;
+$stmt = $db->prepare($sql);
+$stmt->execute($search_params);
 $blogs = $stmt->fetchAll();
 
 // Get featured blogs for sidebar
-$featured_stmt = $pdo->prepare("SELECT * FROM blogs WHERE status = 'published' AND featured = 1 ORDER BY published_at DESC LIMIT 3");
+$featured_stmt = $db->prepare("SELECT * FROM blogs WHERE status = 'published' AND featured = 1 ORDER BY published_at DESC LIMIT 3");
 $featured_stmt->execute();
 $featured_blogs = $featured_stmt->fetchAll();
 }

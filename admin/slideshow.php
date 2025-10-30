@@ -1,13 +1,11 @@
 <?php
-session_start();
-require_once '../config/database.php';
 require_once '../config/config.php';
+require_once '../config/database.php';
 
-// Check if user is logged in
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: login.php');
-    exit();
-}
+// Check if admin is logged in
+requireLogin();
+
+$db = getDB();
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
                         $image_path = 'uploads/slideshow/' . $filename;
                         
-                        $stmt = $pdo->prepare("INSERT INTO slideshow_images (title, description, image_path, link_url, sort_order, status) VALUES (?, ?, ?, ?, ?, ?)");
+                        $stmt = $db->prepare("INSERT INTO slideshow_images (title, description, image_path, link_url, sort_order, status) VALUES (?, ?, ?, ?, ?, ?)");
                         $stmt->execute([$title, $description, $image_path, $link_url, $sort_order, $status]);
                         
                         $success_message = "Slideshow image added successfully!";
@@ -68,11 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
                         $image_path = 'uploads/slideshow/' . $filename;
                         
-                        $stmt = $pdo->prepare("UPDATE slideshow_images SET title = ?, description = ?, image_path = ?, link_url = ?, sort_order = ?, status = ? WHERE id = ?");
+                        $stmt = $db->prepare("UPDATE slideshow_images SET title = ?, description = ?, image_path = ?, link_url = ?, sort_order = ?, status = ? WHERE id = ?");
                         $stmt->execute([$title, $description, $image_path, $link_url, $sort_order, $status, $id]);
                     }
                 } else {
-                    $stmt = $pdo->prepare("UPDATE slideshow_images SET title = ?, description = ?, link_url = ?, sort_order = ?, status = ? WHERE id = ?");
+                    $stmt = $db->prepare("UPDATE slideshow_images SET title = ?, description = ?, link_url = ?, sort_order = ?, status = ? WHERE id = ?");
                     $stmt->execute([$title, $description, $link_url, $sort_order, $status, $id]);
                 }
                 
@@ -83,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $id = (int)$_POST['id'];
                 
                 // Get image path to delete file
-                $stmt = $pdo->prepare("SELECT image_path FROM slideshow_images WHERE id = ?");
+                $stmt = $db->prepare("SELECT image_path FROM slideshow_images WHERE id = ?");
                 $stmt->execute([$id]);
                 $image = $stmt->fetch();
                 
@@ -91,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     unlink('../' . $image['image_path']);
                 }
                 
-                $stmt = $pdo->prepare("DELETE FROM slideshow_images WHERE id = ?");
+                $stmt = $db->prepare("DELETE FROM slideshow_images WHERE id = ?");
                 $stmt->execute([$id]);
                 
                 $success_message = "Slideshow image deleted successfully!";
@@ -101,14 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch all slideshow images
-$stmt = $pdo->query("SELECT * FROM slideshow_images ORDER BY sort_order ASC, created_at DESC");
+$stmt = $db->query("SELECT * FROM slideshow_images ORDER BY sort_order ASC, created_at DESC");
 $slideshow_images = $stmt->fetchAll();
 
 // Get image for editing
 $edit_image = null;
 if (isset($_GET['edit'])) {
     $edit_id = (int)$_GET['edit'];
-    $stmt = $pdo->prepare("SELECT * FROM slideshow_images WHERE id = ?");
+    $stmt = $db->prepare("SELECT * FROM slideshow_images WHERE id = ?");
     $stmt->execute([$edit_id]);
     $edit_image = $stmt->fetch();
 }
