@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Loading Animation -->
@@ -27,49 +27,77 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-glass fixed-top" id="navbar">
+   <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand fw-bold brand-logo" href="index.html">
-                <i class="fas fa-leaf brand-icon"></i>PalmOil Co.
+            <a class="navbar-brand animate-pulse" href="index.html">
+                <img src="assets/white Logo (1)_page-0001.jpg" alt="Palmic Oil" class="navbar-logo">
+                <span class="company-name">Palmic Oil</span>
             </a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-hover" href="index.html">Home</a>
+                        <a class="nav-link " href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-hover" href="products.php">Products</a>
+                        <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-hover" href="about.html">About</a>
+                        <a class="nav-link " href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-hover active" href="contact.html">Contact</a>
+                        <a class="nav-link" href="blogs.php">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <!-- Hero Section -->
-    <section class="hero-gradient text-white text-center py-5 position-relative overflow-hidden">
+    <section class="contact-hero text-white text-center position-relative overflow-hidden">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-particles"></div>
-        <div class="container position-relative z-index-2">
+        <div class="container position-relative z-index-3">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4 fade-in-up">Contact Us</h1>
-                    <p class="lead mb-4 fade-in-up" style="animation-delay: 0.2s;">Get in touch with our team for inquiries, support, or custom solutions. We're here to help you with all your palm oil needs.</p>
-                    <div class="hero-icon-container fade-in-up" style="animation-delay: 0.4s;">
-                        <svg width="80" height="80" viewBox="0 0 100 100" class="hero-icon">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-                            <path d="M30 50 Q50 20 70 50 Q50 80 30 50" fill="currentColor" opacity="0.7"/>
-                            <circle cx="50" cy="50" r="8" fill="currentColor"/>
-                        </svg>
+                <div class="col-lg-10">
+                    <h1 class="display-3 fw-bold mb-4 fade-in-up">Get In Touch</h1>
+                    <p class="lead mb-5 fade-in-up" style="animation-delay: 0.2s;">Connect with our palm oil experts for inquiries, bulk orders, partnerships, and custom solutions. We're committed to providing exceptional service and sustainable products.</p>
+                    <div class="hero-cta-buttons fade-in-up" style="animation-delay: 0.4s;">
+                        <a href="#contactForm" class="btn btn-golden btn-lg me-3 mb-3">
+                            <i class="fas fa-envelope me-2"></i>Send Message
+                        </a>
+                        <a href="tel:+15551234567" class="btn btn-outline-light btn-lg mb-3">
+                            <i class="fas fa-phone me-2"></i>Call Now
+                        </a>
+                    </div>
+                    <div class="hero-stats mt-5 fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3">
+                                <div class="stat-item">
+                                    <h3 class="golden-text mb-1">24/7</h3>
+                                    <p class="mb-0">Customer Support</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="stat-item">
+                                    <h3 class="golden-text mb-1">&lt;24h</h3>
+                                    <p class="mb-0">Response Time</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="stat-item">
+                                    <h3 class="golden-text mb-1">50+</h3>
+                                    <p class="mb-0">Countries Served</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,7 +156,10 @@
                 <!-- Contact Form -->
                 <div class="col-lg-8 mb-5">
                     <div class="contact-form-modern scroll-animate" data-animation="fadeInLeft">
-                        <h3 class="mb-4 golden-text">Send us a Message</h3>
+                        <div class="form-header mb-4">
+                            <h3 class="golden-text mb-2">Send us a Message</h3>
+                            <p class="text-muted">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                        </div>
                         <form id="contactForm" action="contact-handler.php" method="POST" class="modern-form">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -251,19 +282,53 @@
         <div class="container-fluid p-0">
             <div class="row g-0">
                 <div class="col-12">
-                    <div class="map-container-modern" style="height: 400px;">
-                        <!-- Placeholder for map - In a real implementation, you would integrate Google Maps or similar -->
-                        <div class="d-flex align-items-center justify-content-center h-100 text-muted position-relative">
-                            <div class="map-overlay"></div>
-                            <div class="text-center position-relative z-index-2 scroll-animate" data-animation="zoomIn">
-                                <div class="map-icon-container mb-3">
-                                    <i class="fas fa-map-marked-alt fa-3x"></i>
+                    <div class="map-container-modern position-relative" style="height: 500px;">
+                        <!-- Google Maps Embed -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-74.0059413!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316e5b7c5d%3A0x1234567890abcdef!2s123%20Palm%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="google-map">
+                        </iframe>
+                        
+                        <!-- Map Overlay with Contact Info -->
+                        <div class="map-info-overlay position-absolute top-0 start-0 m-4 scroll-animate" data-animation="fadeInLeft">
+                            <div class="map-info-card p-4">
+                                <h5 class="golden-text mb-3">
+                                    <i class="fas fa-map-marker-alt me-2"></i>Visit Our Office
+                                </h5>
+                                <p class="mb-2"><strong>Address:</strong></p>
+                                <p class="mb-3 text-muted">
+                                    123 Palm Street<br>
+                                    Oil City, PC 12345<br>
+                                    United States
+                                </p>
+                                <div class="d-flex flex-column gap-2">
+                                    <a href="https://maps.google.com/maps?q=123+Palm+Street,+Oil+City,+PC+12345" 
+                                       target="_blank" 
+                                       class="btn btn-golden btn-sm">
+                                        <i class="fas fa-directions me-2"></i>Get Directions
+                                    </a>
+                                    <a href="tel:+15551234567" class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-phone me-2"></i>Call Us
+                                    </a>
                                 </div>
-                                <h5 class="golden-text">Interactive Map</h5>
-                                <p class="mb-3">123 Palm Street, Oil City, PC 12345</p>
-                                <a href="https://maps.google.com" target="_blank" class="btn btn-golden btn-hover-effect">
-                                    <i class="fas fa-external-link-alt me-2"></i>View on Google Maps
-                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Map Controls -->
+                        <div class="map-controls position-absolute bottom-0 end-0 m-4">
+                            <div class="btn-group-vertical" role="group">
+                                <button type="button" class="btn btn-light btn-sm map-control-btn" onclick="toggleMapType()">
+                                    <i class="fas fa-layer-group"></i>
+                                </button>
+                                <button type="button" class="btn btn-light btn-sm map-control-btn" onclick="centerMap()">
+                                    <i class="fas fa-crosshairs"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -351,70 +416,156 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer-modern text-white py-5 position-relative overflow-hidden">
-        <div class="footer-particles"></div>
-        <div class="container position-relative z-index-2">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3 golden-text">
-                        <i class="fas fa-leaf green-text me-2"></i>PalmOil Co.
-                    </h5>
-                    <p class="mb-3">Leading provider of premium palm oil products with a commitment to sustainability and quality.</p>
+     <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
+                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="mb-3 golden-text">Quick Links</h6>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="index.html" class="footer-link">Home</a></li>
-                        <li><a href="products.php" class="footer-link">Products</a></li>
-                        <li><a href="about.html" class="footer-link">About</a></li>
-                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="mb-3 golden-text">Services</h6>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="#" class="footer-link">Bulk Orders</a></li>
-                        <li><a href="#" class="footer-link">Custom Packaging</a></li>
-                        <li><a href="#" class="footer-link">Private Labeling</a></li>
-                        <li><a href="#" class="footer-link">Consultation</a></li>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Premium Products</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Golden Crude Palm Oil</a></li>
+                        <li><a href="#">Premium Refined Palm Oil</a></li>
+                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
+                        <li><a href="#">Custom Blends</a></li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 mb-4">
-                    <h6 class="mb-3 golden-text">Newsletter</h6>
-                    <p class="mb-3">Subscribe to get updates on new products and offers.</p>
-                    <div class="input-group newsletter-form">
-                        <input type="email" class="form-control modern-input" placeholder="Your email">
-                        <button class="btn btn-golden btn-hover-effect" type="button">Subscribe</button>
-                    </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
+                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
+                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
+                    </ul>
                 </div>
             </div>
-            
-            <hr class="footer-divider my-4">
-            
+            <hr class="my-4" style="border-color: var(--gold-primary);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 PalmOil Co. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="footer-link me-3">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sustainability</a>
                 </div>
             </div>
         </div>
     </footer>
 
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="main.js"></script>
+    
+    <!-- Contact Page Specific JS -->
+    <script>
+        // Map control functions
+        function toggleMapType() {
+            // This would integrate with Google Maps API for map type switching
+            console.log('Toggle map type');
+        }
+        
+        function centerMap() {
+            // This would center the map on the business location
+            console.log('Center map');
+        }
+        
+        // Enhanced form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                // Show success message
+                showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'success' ? 'success' : 'info'} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+        
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add animation on scroll for stats
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>

@@ -65,9 +65,12 @@ $featured_blogs = $featured_stmt->fetchAll();
     
     <style>
         .blog-hero {
-            background: linear-gradient(135deg, #2c5530 0%, #3e7b3e 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('assets/1800x1200_palm_oil_in_glass_bowl_other.webp') center/cover no-repeat;
             color: white;
-            padding: 80px 0;
+            padding: 220px 0;
+            min-height: 60vh;
+            position: relative;
         }
         
         .blog-card {
@@ -146,10 +149,11 @@ $featured_blogs = $featured_stmt->fetchAll();
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+   <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand fw-bold text-success" href="index.php">
-                <i class="fas fa-leaf me-2"></i>Palmicoil
+            <a class="navbar-brand animate-pulse" href="index.html">
+                <img src="assets/white Logo (1)_page-0001.jpg" alt="Palmic Oil" class="navbar-logo">
+                <span class="company-name">Palmic Oil</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -157,31 +161,30 @@ $featured_blogs = $featured_stmt->fetchAll();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link " href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link " href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="blogs.php">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section class="blog-hero">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-3">Our Blog</h1>
+                    <h1 class="display-4 fw-bold mb-3">Our Blogs</h1>
                     <p class="lead mb-4">Stay updated with the latest insights, news, and innovations in the palm oil industry. Discover sustainable practices, market trends, and expert knowledge.</p>
                 </div>
                 <div class="col-lg-4">
@@ -370,48 +373,56 @@ $featured_blogs = $featured_stmt->fetchAll();
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
+        <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="text-success mb-3">
-                        <i class="fas fa-leaf me-2"></i>Palmicoil
-                    </h5>
-                    <p>Leading the way in sustainable palm oil production with quality, innovation, and environmental responsibility.</p>
-                </div>
-                <div class="col-lg-2 mb-4">
-                    <h6>Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="index.php" class="text-light text-decoration-none">Home</a></li>
-                        <li><a href="about.php" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="products.php" class="text-light text-decoration-none">Products</a></li>
-                        <li><a href="blogs.php" class="text-light text-decoration-none">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h6>Contact Info</h6>
-                    <p class="mb-1"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
-                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> info@palmicoil.com</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Palm Street, City, Country</p>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h6>Follow Us</h6>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
+                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
+                    <div class="social-links">
+                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Premium Products</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Golden Crude Palm Oil</a></li>
+                        <li><a href="#">Premium Refined Palm Oil</a></li>
+                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
+                        <li><a href="#">Custom Blends</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
+                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
+                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
+                    </ul>
+                </div>
             </div>
-            <hr class="my-4">
+            <hr class="my-4" style="border-color: var(--gold-primary);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Palmicoil. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-light text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-light text-decoration-none">Terms of Service</a>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sustainability</a>
                 </div>
             </div>
         </div>

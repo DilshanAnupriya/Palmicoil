@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Loading Animation -->
@@ -29,31 +29,28 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <svg width="40" height="40" viewBox="0 0 100 100" class="me-2">
-                    <path d="M50 10 Q30 30 20 50 Q30 70 50 90 Q70 70 80 50 Q70 30 50 10" 
-                          fill="var(--gold-primary)"/>
-                    <circle cx="50" cy="50" r="8" fill="var(--green-primary)"/>
-                </svg>
-                <span class="brand-text">Golden Palm</span>
+            <a class="navbar-brand animate-pulse" href="index.html">
+                <img src="assets/white Logo (1)_page-0001.jpg" alt="Palmic Oil" class="navbar-logo">
+                <span class="company-name">Palmic Oil</span>
             </a>
-            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link " href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="about.html">About</a>
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blogs.php">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -63,6 +60,7 @@
         </div>
     </nav>
 
+
     <!-- About Hero Section -->
     <section class="hero-section about-hero">
         <div class="hero-background"></div>
@@ -71,103 +69,141 @@
                 <div class="col-lg-6 scroll-animate animate-fade-right">
                     <div class="hero-content">
                         <h1 class="hero-title display-3 fw-bold mb-4">
-                            About <span class="text-gradient">Golden Palm</span>
+                            About <span class="text-gradient">Golden Palm Oil Company</span>
                         </h1>
                         <p class="hero-subtitle lead mb-4">
                             For over two decades, we have been at the forefront of sustainable palm oil production, 
                             committed to delivering premium quality products while protecting our environment and 
                             supporting local communities.
                         </p>
-                        <div class="certifications-badges mb-4">
-                            <div class="badge-item">
-                                <i class="fas fa-certificate text-gold"></i>
-                                <span>RSPO Certified</span>
-                            </div>
-                            <div class="badge-item">
-                                <i class="fas fa-award text-gold"></i>
-                                <span>ISO 9001 Quality</span>
-                            </div>
-                            <div class="badge-item">
-                                <i class="fas fa-leaf text-green"></i>
-                                <span>Sustainable Sourcing</span>
-                            </div>
-                        </div>
+                      
                         <a href="#our-story" class="btn btn-primary btn-lg">
                             <i class="fas fa-arrow-down me-2"></i>Discover Our Journey
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 scroll-animate animate-fade-left">
-                    <div class="hero-image-container">
-                        <div class="floating-card">
-                            <svg width="400" height="400" viewBox="0 0 400 400" class="palm-illustration">
-                                <!-- Palm Tree Trunk -->
-                                <rect x="190" y="200" width="20" height="200" fill="var(--brown)" rx="10"/>
-                                
-                                <!-- Palm Leaves -->
-                                <path d="M200 200 Q150 150 100 120 Q120 140 200 180" fill="var(--green-primary)" opacity="0.9"/>
-                                <path d="M200 200 Q250 150 300 120 Q280 140 200 180" fill="var(--green-secondary)" opacity="0.9"/>
-                                <path d="M200 200 Q180 120 160 80 Q180 100 200 160" fill="var(--green-primary)" opacity="0.8"/>
-                                <path d="M200 200 Q220 120 240 80 Q220 100 200 160" fill="var(--green-secondary)" opacity="0.8"/>
-                                <path d="M200 200 Q120 180 80 160 Q100 180 180 200" fill="var(--green-primary)" opacity="0.7"/>
-                                <path d="M200 200 Q280 180 320 160 Q300 180 220 200" fill="var(--green-secondary)" opacity="0.7"/>
-                                
-                                <!-- Palm Fruits -->
-                                <circle cx="180" cy="190" r="8" fill="var(--gold-primary)"/>
-                                <circle cx="220" cy="190" r="8" fill="var(--gold-secondary)"/>
-                                <circle cx="200" cy="175" r="10" fill="var(--gold-primary)"/>
-                                
-                                <!-- Decorative Elements -->
-                                <circle cx="100" cy="100" r="3" fill="var(--gold-primary)" opacity="0.6" class="floating-particle"/>
-                                <circle cx="300" cy="120" r="4" fill="var(--gold-secondary)" opacity="0.7" class="floating-particle"/>
-                                <circle cx="80" cy="180" r="2" fill="var(--green-primary)" opacity="0.5" class="floating-particle"/>
-                                <circle cx="320" cy="200" r="3" fill="var(--green-secondary)" opacity="0.6" class="floating-particle"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+        
             </div>
         </div>
     </section>
 
     <!-- Company Stats -->
-    <section class="stats-section py-5">
+    <section class="modern-impact-section section-padding">
         <div class="container">
+            <!-- Section Header -->
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="stats-card">
-                        <div class="stats-icon">
-                            <i class="fas fa-calendar-alt"></i>
+                <div class="col-12 text-center mb-5 scroll-animate">
+                    <div class="section-badge">Our Impact</div>
+                    <h2 class="section-title">Our <span class="text-gradient">Impact Numbers</span></h2>
+                    <p class="section-subtitle">Measurable excellence across every aspect of our operations</p>
+                </div>
+            </div>
+            
+            <!-- Impact Grid -->
+            <div class="impact-grid">
+                <div class="impact-card scroll-animate" data-delay="100">
+                    <div class="impact-visual">
+                        <div class="impact-icon-container">
+                            <i class="fas fa-calendar-alt impact-icon"></i>
                         </div>
-                        <div class="stats-number display-4 fw-bold">25+</div>
-                        <h6 class="stats-label">Years of Experience</h6>
+                        <div class="impact-decoration"></div>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-number-wrapper">
+                            <span class="impact-number" data-count="25">0</span>
+                            <span class="impact-suffix">+</span>
+                        </div>
+                        <h4 class="impact-title">Years of Excellence</h4>
+                        <p class="impact-description">Decades of industry leadership, innovation, and sustainable growth in palm oil production</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="95"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="stats-card">
-                        <div class="stats-icon">
-                            <i class="fas fa-box"></i>
+                
+                <div class="impact-card scroll-animate" data-delay="200">
+                    <div class="impact-visual">
+                        <div class="impact-icon-container">
+                            <i class="fas fa-shipping-fast impact-icon"></i>
                         </div>
-                        <div class="stats-number display-4 fw-bold">500K+</div>
-                        <h6 class="stats-label">Products Delivered</h6>
+                        <div class="impact-decoration"></div>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-number-wrapper">
+                            <span class="impact-number" data-count="500">0</span>
+                            <span class="impact-suffix">K+</span>
+                        </div>
+                        <h4 class="impact-title">Products Delivered</h4>
+                        <p class="impact-description">Premium quality palm oil products shipped worldwide with uncompromising standards</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="88"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="stats-card">
-                        <div class="stats-icon">
-                            <i class="fas fa-globe"></i>
+                
+                <div class="impact-card scroll-animate" data-delay="300">
+                    <div class="impact-visual">
+                        <div class="impact-icon-container">
+                            <i class="fas fa-globe-americas impact-icon"></i>
                         </div>
-                        <div class="stats-number display-4 fw-bold">50+</div>
-                        <h6 class="stats-label">Countries Served</h6>
+                        <div class="impact-decoration"></div>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-number-wrapper">
+                            <span class="impact-number" data-count="50">0</span>
+                            <span class="impact-suffix">+</span>
+                        </div>
+                        <h4 class="impact-title">Countries Served</h4>
+                        <p class="impact-description">Global reach with local expertise, serving diverse markets across continents</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="92"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="stats-card">
-                        <div class="stats-icon">
-                            <i class="fas fa-seedling"></i>
+                
+                <div class="impact-card scroll-animate" data-delay="400">
+                    <div class="impact-visual">
+                        <div class="impact-icon-container">
+                            <i class="fas fa-seedling impact-icon"></i>
                         </div>
-                        <div class="stats-number display-4 fw-bold">10K+</div>
-                        <h6 class="stats-label">Hectares Managed</h6>
+                        <div class="impact-decoration"></div>
+                    </div>
+                    <div class="impact-content">
+                        <div class="impact-number-wrapper">
+                            <span class="impact-number" data-count="10">0</span>
+                            <span class="impact-suffix">K+</span>
+                        </div>
+                        <h4 class="impact-title">Hectares Managed</h4>
+                        <p class="impact-description">Sustainable plantation management with environmental responsibility at the core</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Impact Metrics -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="impact-summary scroll-animate" data-delay="500">
+                        <div class="summary-content">
+                            <h3 class="summary-title">Driving Sustainable Growth</h3>
+                            <p class="summary-text">Our commitment to excellence extends beyond numbers. We're building a sustainable future through responsible practices, innovative solutions, and unwavering dedication to quality.</p>
+                        </div>
+                        <div class="summary-metrics">
+                            <div class="mini-metric">
+                                <span class="mini-number">99.8%</span>
+                                <span class="mini-label">Quality Rate</span>
+                            </div>
+                            <div class="mini-metric">
+                                <span class="mini-number">24/7</span>
+                                <span class="mini-label">Support</span>
+                            </div>
+                            <div class="mini-metric">
+                                <span class="mini-number">100%</span>
+                                <span class="mini-label">Sustainable</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,83 +211,86 @@
     </section>
 
     <!-- Our Story -->
-    <section id="our-story" class="section-padding">
+    <section id="our-story" class="modern-story-section section-padding">
         <div class="container">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6 mb-4 scroll-animate animate-fade-right">
-                    <div class="story-image-container">
-                        <div class="image-wrapper">
-                            <svg width="500" height="400" viewBox="0 0 500 400" class="story-illustration">
-                                <!-- Background -->
-                                <rect width="500" height="400" fill="url(#storyGradient)"/>
-                                
-                                <!-- Mountains -->
-                                <path d="M0 300 L100 200 L200 250 L300 180 L400 220 L500 200 L500 400 L0 400 Z" 
-                                      fill="var(--green-primary)" opacity="0.3"/>
-                                
-                                <!-- Palm Trees -->
-                                <g transform="translate(100, 250)">
-                                    <rect x="18" y="50" width="4" height="50" fill="var(--brown)" rx="2"/>
-                                    <path d="M20 50 Q10 40 5 35 Q12 42 20 45" fill="var(--green-primary)"/>
-                                    <path d="M20 50 Q30 40 35 35 Q28 42 20 45" fill="var(--green-secondary)"/>
-                                    <path d="M20 50 Q15 35 12 30 Q17 37 20 45" fill="var(--green-primary)"/>
-                                    <path d="M20 50 Q25 35 28 30 Q23 37 20 45" fill="var(--green-secondary)"/>
-                                </g>
-                                
-                                <g transform="translate(300, 220)">
-                                    <rect x="18" y="50" width="4" height="60" fill="var(--brown)" rx="2"/>
-                                    <path d="M20 50 Q8 38 2 32 Q10 40 20 45" fill="var(--green-primary)"/>
-                                    <path d="M20 50 Q32 38 38 32 Q30 40 20 45" fill="var(--green-secondary)"/>
-                                    <path d="M20 50 Q14 32 10 25 Q16 35 20 45" fill="var(--green-primary)"/>
-                                    <path d="M20 50 Q26 32 30 25 Q24 35 20 45" fill="var(--green-secondary)"/>
-                                </g>
-                                
-                                <!-- Sun -->
-                                <circle cx="400" cy="80" r="30" fill="var(--gold-primary)" opacity="0.8"/>
-                                
-                                <!-- Floating Elements -->
-                                <circle cx="150" cy="150" r="2" fill="var(--gold-primary)" opacity="0.6" class="floating-particle"/>
-                                <circle cx="350" cy="120" r="3" fill="var(--gold-secondary)" opacity="0.7" class="floating-particle"/>
-                                
-                                <defs>
-                                    <linearGradient id="storyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:var(--gold-light);stop-opacity:0.1"/>
-                                        <stop offset="100%" style="stop-color:var(--green-light);stop-opacity:0.1"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
+            <div class="row">
+                <div class="col-12 text-center mb-5 m scroll-animate">
+                    <div class="section-header">
+                        <span class="section-badge">Our Journey</span>
+                        <h2 class="section-title">The <span class="text-gradient">Story</span> Behind Our Success</h2>
+                        <p class="section-subtitle">From humble beginnings to global leadership in sustainable palm oil production</p>
                     </div>
                 </div>
-                <div class="col-lg-6 scroll-animate animate-fade-left">
-                    <div class="story-content">
-                        <h2 class="section-title mb-4">Our <span class="text-gradient">Story</span></h2>
-                        <p class="text-muted mb-4">
-                            Founded in 1999, Golden Palm began as a small family business with a vision to produce 
-                            the highest quality palm oil while maintaining environmental responsibility. What started 
-                            as a single plantation has grown into a global operation spanning multiple countries.
-                        </p>
-                        <p class="text-muted mb-4">
-                            Our journey has been marked by continuous innovation, sustainable practices, and an 
-                            unwavering commitment to quality. We've invested heavily in research and development 
-                            to ensure our products meet the highest international standards.
-                        </p>
-                        <div class="timeline-grid">
-                            <div class="timeline-item">
-                                <div class="timeline-year">1999</div>
-                                <div class="timeline-event">Company Founded</div>
+            </div>
+            
+            <div class="row justify-content-center align-items-center mb-5">
+                <div class="col-lg-8 col-xl-7 scroll-animate animate-fade-left">
+                    <div class="modern-story-content">
+                        <div class="story-text">
+                            <h3 class="story-heading">From Vision to Reality</h3>
+                            <p class="story-paragraph">
+                                Founded in 1999, Golden Palm began as a small family business with a vision to produce 
+                                the highest quality palm oil while maintaining environmental responsibility. What started 
+                                as a single plantation has grown into a global operation spanning multiple countries.
+                            </p>
+                            <p class="story-paragraph">
+                                Our journey has been marked by continuous innovation, sustainable practices, and an 
+                                unwavering commitment to quality. We've invested heavily in research and development 
+                                to ensure our products meet the highest international standards.
+                            </p>
+                        </div>
+                        
+                        <div class="modern-timeline">
+                            <div class="timeline-header">
+                                <h4>Key Milestones</h4>
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2005</div>
-                                <div class="timeline-event">RSPO Certification</div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2010</div>
-                                <div class="timeline-event">International Expansion</div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2020</div>
-                                <div class="timeline-event">Carbon Neutral Goal</div>
+                            <div class="timeline-items">
+                                <div class="modern-timeline-item scroll-animate" data-delay="100">
+                                    <div class="timeline-marker">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-line"></div>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">1999</div>
+                                        <div class="timeline-title">Company Founded</div>
+                                        <div class="timeline-description">Started with a single plantation and a vision for sustainable production</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="modern-timeline-item scroll-animate" data-delay="200">
+                                    <div class="timeline-marker">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-line"></div>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">2005</div>
+                                        <div class="timeline-title">RSPO Certification</div>
+                                        <div class="timeline-description">Achieved certification for sustainable palm oil practices</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="modern-timeline-item scroll-animate" data-delay="300">
+                                    <div class="timeline-marker">
+                                        <div class="timeline-dot"></div>
+                                        <div class="timeline-line"></div>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">2010</div>
+                                        <div class="timeline-title">International Expansion</div>
+                                        <div class="timeline-description">Expanded operations to serve global markets</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="modern-timeline-item scroll-animate" data-delay="400">
+                                    <div class="timeline-marker">
+                                        <div class="timeline-dot"></div>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">2020</div>
+                                        <div class="timeline-title">Carbon Neutral Goal</div>
+                                        <div class="timeline-description">Committed to achieving carbon neutrality by 2030</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -261,91 +300,156 @@
     </section>
 
     <!-- Our Values -->
-    <section class="values-section section-padding">
+    <section class="modern-values-section section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5 scroll-animate">
-                    <h2 class="section-title">Our Core <span class="text-gradient">Values</span></h2>
-                    <p class="section-subtitle">The principles that guide everything we do</p>
+                    <div class="values-header">
+                        <span class="section-badge">Our Foundation</span>
+                        <h2 class="section-title">Core <span class="text-gradient">Values</span> That Drive Us</h2>
+                        <p class="section-subtitle">The principles that guide everything we do and shape our commitment to excellence</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-leaf"></i>
+            <div class="values-grid">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="100">
+                        <div class="modern-value-card primary-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Sustainability</h5>
+                                    <p class="value-description">
+                                        We are committed to sustainable farming practices that protect biodiversity 
+                                        and support ecosystem health for future generations.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Environmental Stewardship</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Sustainability</h5>
-                        <p>
-                            We are committed to sustainable farming practices that protect biodiversity 
-                            and support ecosystem health for future generations.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
+                    
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="200">
+                        <div class="modern-value-card secondary-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Quality Excellence</h5>
+                                    <p class="value-description">
+                                        Every product undergoes rigorous quality testing to ensure it meets our 
+                                        high standards and exceeds customer expectations.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Premium Standards</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Quality Excellence</h5>
-                        <p>
-                            Every product undergoes rigorous quality testing to ensure it meets our 
-                            high standards and exceeds customer expectations.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-handshake"></i>
+                    
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="300">
+                        <div class="modern-value-card accent-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Community Partnership</h5>
+                                    <p class="value-description">
+                                        We work closely with local communities, providing fair employment and 
+                                        supporting social development programs.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Social Impact</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Community Partnership</h5>
-                        <p>
-                            We work closely with local communities, providing fair employment and 
-                            supporting social development programs.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microscope"></i>
+                    
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="400">
+                        <div class="modern-value-card secondary-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Innovation</h5>
+                                    <p class="value-description">
+                                        Continuous research and development drive our innovation in sustainable 
+                                        production methods and product quality improvements.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Future Forward</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Innovation</h5>
-                        <p>
-                            Continuous research and development drive our innovation in sustainable 
-                            production methods and product quality improvements.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                    
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="500">
+                        <div class="modern-value-card primary-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Transparency</h5>
+                                    <p class="value-description">
+                                        We maintain complete transparency in our operations, from sourcing to 
+                                        production, ensuring full traceability of our products.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Open Operations</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Transparency</h5>
-                        <p>
-                            We maintain complete transparency in our operations, from sourcing to 
-                            production, ensuring full traceability of our products.
-                        </p>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
+                    
+                    <div class="col-lg-4 col-md-6 scroll-animate" data-delay="600">
+                        <div class="modern-value-card accent-card">
+                            <div class="value-card-inner">
+                                <div class="value-icon-wrapper">
+                                    <div class="value-icon-bg"></div>
+                                    <div class="value-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                </div>
+                                <div class="value-content">
+                                    <h5 class="value-title">Global Responsibility</h5>
+                                    <p class="value-description">
+                                        As a global company, we take responsibility for our environmental impact 
+                                        and work towards carbon neutrality.
+                                    </p>
+                                    <div class="value-highlight">
+                                        <span class="highlight-text">Worldwide Impact</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h5>Global Responsibility</h5>
-                        <p>
-                            As a global company, we take responsibility for our environmental impact 
-                            and work towards carbon neutrality.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -353,238 +457,84 @@
     </section>
 
     <!-- Sustainability Commitment -->
-    <section class="sustainability-section section-padding">
+    <section class="modern-sustainability-section section-padding">
         <div class="container">
-            <div class="row align-items-center">
+            <!-- Section Header -->
+            <div class="row">
+                <div class="col-12 text-center mb-5 scroll-animate">
+                    <div class="sustainability-header">
+                        <span class="section-badge">Our Mission</span>
+                        <h2 class="section-title">Sustainable <span class="text-gradient">Future</span></h2>
+                        <p class="section-subtitle">
+                            Leading the industry towards responsible palm oil production through 
+                            innovative practices and unwavering commitment to environmental stewardship.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="row align-items-center mb-5">
                 <div class="col-lg-6 scroll-animate animate-fade-right">
                     <div class="sustainability-content">
-                        <h2 class="section-title mb-4">Our <span class="text-gradient">Sustainability</span> Commitment</h2>
-                        <p class="text-muted mb-4">
-                            Sustainability is at the heart of everything we do. We believe that responsible 
-                            palm oil production is not just possible, but essential for the future of our 
-                            industry and our planet.
-                        </p>
-                        
-                        <div class="commitment-list">
-                            <div class="commitment-item">
-                                <div class="commitment-icon">
-                                    <i class="fas fa-tree"></i>
-                                </div>
-                                <div class="commitment-content">
-                                    <h6>Zero Deforestation Policy</h6>
-                                    <p>We have committed to zero deforestation and work only with suppliers who share this commitment.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="commitment-item">
-                                <div class="commitment-icon">
-                                    <i class="fas fa-paw"></i>
-                                </div>
-                                <div class="commitment-content">
-                                    <h6>Biodiversity Protection</h6>
-                                    <p>Our plantations include protected areas for wildlife and maintain ecological corridors.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="commitment-item">
-                                <div class="commitment-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="commitment-content">
-                                    <h6>Community Development</h6>
-                                    <p>We invest in local communities through education, healthcare, and infrastructure projects.</p>
-                                </div>
-                            </div>
+                        <div class="content-intro">
+                            <h3 class="content-heading">Building Tomorrow's <span class="text-gradient">Green Economy</span></h3>
+                            <p class="content-description">
+                                Sustainability isn't just our responsibility—it's our competitive advantage. 
+                                We're pioneering regenerative agriculture practices that restore ecosystems 
+                                while delivering premium palm oil products.
+                            </p>
                         </div>
                         
-                        <a href="contact.html" class="btn btn-primary btn-lg mt-4">
-                            <i class="fas fa-leaf me-2"></i>Learn More About Our Practices
-                        </a>
+                        <div class="impact-metrics">
+                            <div class="metric-item">
+                                <div class="metric-number">
+                                    <span class="number-value" data-count="100">0</span>
+                                    <span class="number-suffix">%</span>
+                                </div>
+                                <div class="metric-label">Carbon Neutral Operations</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">
+                                    <span class="number-value" data-count="50000">0</span>
+                                    <span class="number-suffix">+</span>
+                                </div>
+                                <div class="metric-label">Hectares Protected</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-number">
+                                    <span class="number-value" data-count="25">0</span>
+                                    <span class="number-suffix">+</span>
+                                </div>
+                                <div class="metric-label">Communities Supported</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-6 scroll-animate animate-fade-left">
                     <div class="sustainability-visual">
-                        <svg width="500" height="400" viewBox="0 0 500 400" class="sustainability-illustration">
-                            <!-- Earth -->
-                            <circle cx="250" cy="200" r="120" fill="url(#earthGradient)"/>
-                            
-                            <!-- Continents -->
-                            <path d="M200 150 Q220 140 240 150 Q260 160 280 150 Q300 140 320 160 Q310 180 290 190 Q270 200 250 190 Q230 180 210 170 Q190 160 200 150" 
-                                  fill="var(--green-primary)" opacity="0.8"/>
-                            <path d="M180 220 Q200 210 220 220 Q240 230 220 240 Q200 250 180 240 Q160 230 180 220" 
-                                  fill="var(--green-secondary)" opacity="0.7"/>
-                            
-                            <!-- Protective Shield -->
-                            <circle cx="250" cy="200" r="140" fill="none" stroke="var(--gold-primary)" stroke-width="3" opacity="0.6" stroke-dasharray="10,5"/>
-                            
-                            <!-- Floating Elements -->
-                            <g class="floating-elements">
-                                <circle cx="150" cy="100" r="4" fill="var(--gold-primary)" opacity="0.7"/>
-                                <circle cx="350" cy="120" r="3" fill="var(--green-primary)" opacity="0.6"/>
-                                <circle cx="100" cy="250" r="5" fill="var(--gold-secondary)" opacity="0.8"/>
-                                <circle cx="400" cy="280" r="3" fill="var(--green-secondary)" opacity="0.7"/>
-                                <circle cx="180" cy="350" r="4" fill="var(--gold-primary)" opacity="0.6"/>
-                                <circle cx="320" cy="80" r="3" fill="var(--green-primary)" opacity="0.8"/>
-                            </g>
-                            
-                            <!-- Leaves around Earth -->
-                            <g transform="translate(120, 120) rotate(-30)">
-                                <path d="M0 0 Q10 -5 20 0 Q15 10 10 15 Q5 10 0 0" fill="var(--green-primary)" opacity="0.7"/>
-                            </g>
-                            <g transform="translate(360, 140) rotate(45)">
-                                <path d="M0 0 Q10 -5 20 0 Q15 10 10 15 Q5 10 0 0" fill="var(--green-secondary)" opacity="0.7"/>
-                            </g>
-                            <g transform="translate(130, 300) rotate(120)">
-                                <path d="M0 0 Q10 -5 20 0 Q15 10 10 15 Q5 10 0 0" fill="var(--green-primary)" opacity="0.7"/>
-                            </g>
-                            <g transform="translate(370, 260) rotate(-60)">
-                                <path d="M0 0 Q10 -5 20 0 Q15 10 10 15 Q5 10 0 0" fill="var(--green-secondary)" opacity="0.7"/>
-                            </g>
-                            
-                            <defs>
-                                <radialGradient id="earthGradient" cx="50%" cy="30%" r="70%">
-                                    <stop offset="0%" style="stop-color:var(--blue-light);stop-opacity:0.8"/>
-                                    <stop offset="100%" style="stop-color:var(--blue-primary);stop-opacity:1"/>
-                                </radialGradient>
-                            </defs>
-                        </svg>
+                        <div class="visual-container">
+                            <div class="earth-container">
+                                <div class="earth-globe">
+                                    <div class="earth-surface"></div>
+                                    <div class="earth-atmosphere"></div>
+                                </div>
+                                <div class="orbit-ring orbit-1"></div>
+                                <div class="orbit-ring orbit-2"></div>
+                                <div class="floating-icon icon-1"><i class="fas fa-leaf"></i></div>
+                                <div class="floating-icon icon-2"><i class="fas fa-tree"></i></div>
+                                <div class="floating-icon icon-3"><i class="fas fa-seedling"></i></div>
+                                <div class="floating-icon icon-4"><i class="fas fa-globe"></i></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section class="certifications-section section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5 scroll-animate">
-                    <h2 class="section-title">Our <span class="text-gradient">Certifications</span></h2>
-                    <p class="section-subtitle">Recognized standards that validate our commitment to quality and sustainability</p>
                 </div>
             </div>
             
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="certification-card">
-                        <div class="certification-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h6>RSPO Certified</h6>
-                        <p>Roundtable on Sustainable Palm Oil certification ensuring responsible production.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="certification-card">
-                        <div class="certification-icon">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <h6>ISO 9001</h6>
-                        <p>International standard for quality management systems and continuous improvement.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="certification-card">
-                        <div class="certification-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h6>HACCP</h6>
-                        <p>Hazard Analysis Critical Control Points for food safety management.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 scroll-animate">
-                    <div class="certification-card">
-                        <div class="certification-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h6>Organic Certified</h6>
-                        <p>Certified organic production methods for select product lines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5 scroll-animate">
-                    <h2 class="section-title">Our Leadership <span class="text-gradient">Team</span></h2>
-                    <p class="section-subtitle">Meet the experts driving our mission forward</p>
-                </div>
-            </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <div class="avatar-placeholder">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h5>John Anderson</h5>
-                            <p class="team-role">Chief Executive Officer</p>
-                            <p class="team-bio">
-                                With over 20 years in sustainable agriculture, John leads our vision for 
-                                responsible palm oil production.
-                            </p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <div class="avatar-placeholder">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h5>Dr. Sarah Chen</h5>
-                            <p class="team-role">Chief Technology Officer</p>
-                            <p class="team-bio">
-                                Dr. Chen oversees our R&D initiatives and sustainable technology implementations 
-                                across all operations.
-                            </p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4 scroll-animate">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <div class="avatar-placeholder">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h5>Michael Rodriguez</h5>
-                            <p class="team-role">Chief Operations Officer</p>
-                            <p class="team-bio">
-                                Michael ensures operational excellence and manages our global supply chain 
-                                and quality assurance programs.
-                            </p>
-                            <div class="social-links">
-                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+         
+      
+        
         </div>
     </section>
 
@@ -614,75 +564,56 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+       <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="footer-brand">
-                        <svg width="40" height="40" viewBox="0 0 100 100" class="me-2">
-                            <path d="M50 10 Q30 30 20 50 Q30 70 50 90 Q70 70 80 50 Q70 30 50 10" 
-                                  fill="var(--gold-primary)"/>
-                            <circle cx="50" cy="50" r="8" fill="var(--green-primary)"/>
-                        </svg>
-                        <span class="brand-text">Golden Palm</span>
-                    </div>
-                    <p class="footer-description">Leading provider of premium palm oil products with a commitment to sustainability and quality.</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
+                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="footer-title">Company</h6>
-                    <ul class="footer-links">
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.php">Products</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#our-story">Our Story</a></li>
-                        <li><a href="#team">Leadership</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="footer-title">Sustainability</h6>
-                    <ul class="footer-links">
-                        <li><a href="#">RSPO Certification</a></li>
-                        <li><a href="#">Environmental Policy</a></li>
-                        <li><a href="#">Community Programs</a></li>
-                        <li><a href="#">Sustainability Report</a></li>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Premium Products</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Golden Crude Palm Oil</a></li>
+                        <li><a href="#">Premium Refined Palm Oil</a></li>
+                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
+                        <li><a href="#">Custom Blends</a></li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 mb-4">
-                    <h6 class="footer-title">Contact Info</h6>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Palm Street, Oil City, PC 12345</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (555) 123-4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@goldenpalm.com</span>
-                        </div>
-                    </div>
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
+                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
+                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p class="copyright">&copy; 2024 Golden Palm Oil Co. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <a href="#" class="footer-link">Privacy Policy</a>
-                        <a href="#" class="footer-link">Terms of Service</a>
-                    </div>
+            <hr class="my-4" style="border-color: var(--gold-primary);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sustainability</a>
                 </div>
             </div>
         </div>
@@ -691,6 +622,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

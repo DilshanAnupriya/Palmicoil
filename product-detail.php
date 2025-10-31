@@ -372,73 +372,61 @@ $relatedProducts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 
     <!-- Footer -->
-    <footer class="text-white py-5">
+       <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3">
-                        <i class="fas fa-leaf text-success me-2"></i>PalmOil Co.
-                    </h5>
-                    <p class="mb-3">Leading provider of premium palm oil products with a commitment to sustainability and quality.</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
+                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
                     <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2">
                     <h6 class="mb-3">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white-50">Home</a></li>
-                        <li><a href="products.php" class="text-white-50">Products</a></li>
-                        <li><a href="about.html" class="text-white-50">About</a></li>
-                        <li><a href="contact.html" class="text-white-50">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3">
+                    <h6 class="mb-3">Premium Products</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Golden Crude Palm Oil</a></li>
+                        <li><a href="#">Premium Refined Palm Oil</a></li>
+                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
+                        <li><a href="#">Custom Blends</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
                     <h6 class="mb-3">Contact Info</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="fas fa-map-marker-alt me-2"></i>
-                            123 Palm Street, Oil City, PC 12345
-                        </li>
-                        <li class="mb-2">
-                            <i class="fas fa-phone me-2"></i>
-                            +1 (555) 123-4567
-                        </li>
-                        <li class="mb-2">
-                            <i class="fas fa-envelope me-2"></i>
-                            info@palmoilco.com
-                        </li>
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
+                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
+                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
                     </ul>
                 </div>
-                
-                <div class="col-lg-3 mb-4">
-                    <h6 class="mb-3">Newsletter</h6>
-                    <p class="mb-3">Subscribe to get updates on new products and offers.</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-success" type="button">Subscribe</button>
-                    </div>
-                </div>
             </div>
-            
-            <hr class="my-4">
-            
+            <hr class="my-4" style="border-color: var(--gold-primary);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 PalmOil Co. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
-                    <a href="#" class="text-white-50">Terms of Service</a>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#" class="me-3">Terms of Service</a>
+                    <a href="#">Sustainability</a>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

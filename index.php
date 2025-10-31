@@ -45,7 +45,8 @@ if ($pdo) {
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand animate-pulse" href="index.html">
-                🌴 Palm Oil Co.
+                <img src="assets/white Logo (1)_page-0001.jpg" alt="Palmic Oil" class="navbar-logo">
+                <span class="company-name">Palmic Oil</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -117,7 +118,7 @@ if ($pdo) {
                         Sustainable excellence meets golden quality. We provide the finest palm oil products with a commitment to environmental responsibility and premium standards.
                     </p>
                     <div class="d-flex gap-3 animate-fade-up" style="animation-delay: 0.4s;">
-                        <a href="products.php" class="btn btn-primary btn-lg">
+                        <a href="products.php" class="btn btn-golden btn-lg">
                             <i class="fas fa-shopping-cart me-2"></i> Explore Products
                         </a>
                         <a href="contact.html" class="btn btn-outline-light btn-lg">
@@ -125,51 +126,17 @@ if ($pdo) {
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 hero-image animate-float">
-                    <div class="text-center">
-                        <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Palm Tree SVG -->
-                            <defs>
-                                <linearGradient id="palmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#D2691E;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Palm Tree Trunk -->
-                            <rect x="180" y="200" width="40" height="150" fill="url(#trunkGradient)" rx="20"/>
-                            
-                            <!-- Palm Leaves -->
-                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(-30 200 180)"/>
-                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(0 200 180)"/>
-                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(30 200 180)"/>
-                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(60 200 180)"/>
-                            <ellipse cx="200" cy="180" rx="80" ry="20" fill="url(#palmGradient)" transform="rotate(-60 200 180)"/>
-                            
-                            <!-- Palm Fruits -->
-                            <circle cx="170" cy="190" r="8" fill="#FFD700"/>
-                            <circle cx="185" cy="195" r="8" fill="#FFA500"/>
-                            <circle cx="200" cy="190" r="8" fill="#FFD700"/>
-                            <circle cx="215" cy="195" r="8" fill="#FFA500"/>
-                            <circle cx="230" cy="190" r="8" fill="#FFD700"/>
-                        </svg>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="section bg-light-green">
+    <section class="section bg-white" style="margin-top:40px; margin-bottom:260px;">
         <div class="container">
-            <div class="row text-center mb-5">
+            <div class="row text-center mb-10">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title scroll-animate">Why Choose Our Golden Palm Oil?</h2>
-                    <p class="section-subtitle scroll-animate">We are committed to providing the highest quality palm oil products with sustainable practices and golden excellence.</p>
+                    <h2 class="section-title scroll-animate" style="color: #333;">Why Choose Our Golden Palm Oil?</h2>
+                    <p class="section-subtitle scroll-animate" style="color: #666;">We are committed to providing the highest quality palm oil products with sustainable practices and golden excellence.</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -178,8 +145,8 @@ if ($pdo) {
                         <div class="feature-icon">
                             <i class="fas fa-leaf fa-4x" style="color: var(--green-primary);"></i>
                         </div>
-                        <h4>100% Sustainable</h4>
-                        <p class="text-muted">Environmentally responsible palm oil production with certified sustainable farming practices and zero deforestation commitment.</p>
+                        <h4 style="color: #333;">100% Sustainable</h4>
+                        <p style="color: #666;">Environmentally responsible palm oil production with certified sustainable farming practices and zero deforestation commitment.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -187,8 +154,8 @@ if ($pdo) {
                         <div class="feature-icon">
                             <i class="fas fa-award fa-4x" style="color: var(--gold-primary);"></i>
                         </div>
-                        <h4>Golden Quality</h4>
-                        <p class="text-muted">Premium golden standards with rigorous testing, quality control processes, and international certifications for excellence.</p>
+                        <h4 style="color: #333;">Golden Quality</h4>
+                        <p style="color: #666;">Premium golden standards with rigorous testing, quality control processes, and international certifications for excellence.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -205,11 +172,11 @@ if ($pdo) {
     </section>
 
     <!-- Our Strengths Section -->
-    <section class="section bg-white">
+    <section class="section bg-strengths">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title scroll-animate">Our Strengths</h2>
+                    <h2 class="section-title scroll-animate" style="color: #333;">Our Strengths</h2>
                     <p class="section-subtitle scroll-animate">Discover what makes us the leading choice for premium palm oil products worldwide.</p>
                 </div>
             </div>
@@ -261,8 +228,8 @@ if ($pdo) {
                                 <i class="fas fa-globe fa-3x" style="color: var(--gold-primary);"></i>
                             </div>
                             <div>
-                                <h4 class="mb-3">Global Reach</h4>
-                                <p class="text-muted">Extensive distribution network spanning over 50 countries with reliable supply chain management.</p>
+                                <h4 class="mb-3" style="color: #333;">Global Reach</h4>
+                                <p style="color: #666;">Extensive distribution network spanning over 50 countries with reliable supply chain management.</p>
                             </div>
                         </div>
                     </div>
@@ -298,7 +265,7 @@ if ($pdo) {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title scroll-animate">Golden Featured Products</h2>
+                    <h2 class="section-title scroll-animate" style="color: #333;">Golden Featured Products</h2>
                     <p class="section-subtitle scroll-animate">Discover our most popular premium palm oil products with golden quality standards.</p>
                 </div>
             </div>
@@ -313,10 +280,6 @@ if ($pdo) {
                             <div class="product-info">
                                 <h5 class="product-title">Premium Crude Palm Oil</h5>
                                 <p class="text-muted mb-3">High-quality crude palm oil perfect for industrial and commercial applications.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="product-price">Contact for Price</span>
-                                    <a href="#" class="btn btn-secondary btn-sm">View Details</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -328,10 +291,7 @@ if ($pdo) {
                             <div class="product-info">
                                 <h5 class="product-title">Refined Palm Oil</h5>
                                 <p class="text-muted mb-3">Premium refined palm oil with golden clarity for food and cosmetic industries.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="product-price">Contact for Price</span>
-                                    <a href="#" class="btn btn-secondary btn-sm">View Details</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -343,10 +303,7 @@ if ($pdo) {
                             <div class="product-info">
                                 <h5 class="product-title">Palm Kernel Oil</h5>
                                 <p class="text-muted mb-3">Specialty palm kernel oil with exceptional properties for premium applications.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="product-price">Contact for Price</span>
-                                    <a href="#" class="btn btn-secondary btn-sm">View Details</a>
-                                </div>
+                            
                             </div>
                         </div>
                     </div>
@@ -364,14 +321,6 @@ if ($pdo) {
                                 <div class="product-info">
                                     <h5 class="product-title"><?php echo htmlspecialchars($product['name']); ?></h5>
                                     <p class="text-muted mb-3"><?php echo htmlspecialchars($product['short_description'] ?: substr($product['description'], 0, 100) . '...'); ?></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <?php if ($product['price']): ?>
-                                            <span class="product-price">$<?php echo number_format($product['price'], 2); ?></span>
-                                        <?php else: ?>
-                                            <span class="product-price">Contact for Price</span>
-                                        <?php endif; ?>
-                                        <a href="product-detail.php?slug=<?php echo htmlspecialchars($product['slug']); ?>" class="btn btn-secondary btn-sm">View Details</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +328,7 @@ if ($pdo) {
                 <?php endif; ?>
             </div>
             <div class="text-center mt-5">
-                <a href="products.php" class="btn btn-primary btn-lg scroll-animate">
+                <a href="products.php" class="btn btn-golden btn-lg scroll-animate">
                     <i class="fas fa-eye me-2"></i> Explore All Products
                 </a>
             </div>
@@ -387,7 +336,7 @@ if ($pdo) {
     </section>
 
     <!-- Stats Section -->
-    <section class="section bg-light-gold">
+    <section class="section bg-gold-primary">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -419,12 +368,12 @@ if ($pdo) {
     </section>
 
     <!-- Certifications & Awards Section -->
-    <section class="section bg-light-green">
+    <section class="section bg-certifications" style="padding: 100px 0;">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title scroll-animate">Certifications & Awards</h2>
-                    <p class="section-subtitle scroll-animate">Recognized excellence through prestigious certifications and industry awards that validate our commitment to quality.</p>
+                    <h2 class="section-title scroll-animate" style="color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Certifications & Awards</h2>
+                    <p class="section-subtitle scroll-animate" style="color: #f8f9fa; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Recognized excellence through prestigious certifications and industry awards that validate our commitment to quality.</p>
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
@@ -453,8 +402,8 @@ if ($pdo) {
                                         <i class="fas fa-award fa-4x" style="color: var(--gold-primary);"></i>
                                     <?php endif; ?>
                                 </div>
-                                <h5 class="certification-name"><?php echo htmlspecialchars($certification['title']); ?></h5>
-                                <p class="text-muted small"><?php echo htmlspecialchars($certification['description']); ?></p>
+                                <h5 class="certification-name" style="color: #000; font-weight: 600;"><?php echo htmlspecialchars($certification['title']); ?></h5>
+                                <p class="small" style="color: #333;"><?php echo htmlspecialchars($certification['description']); ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -465,17 +414,17 @@ if ($pdo) {
                             <div class="certification-logo mb-3">
                                 <i class="fas fa-certificate fa-4x" style="color: var(--gold-primary);"></i>
                             </div>
-                            <h5 class="certification-name">ISO 9001:2015</h5>
-                            <p class="text-muted small">Quality Management System certification ensuring consistent quality standards.</p>
+                            <h5 class="certification-name" style="color: #000; font-weight: 600;">ISO 9001:2015</h5>
+                            <p class="small" style="color: #333;">Quality Management System certification ensuring consistent quality standards.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="certification-card text-center scroll-animate" style="animation-delay: 0.2s;">
                             <div class="certification-logo mb-3">
-                                <i class="fas fa-leaf fa-4x" style="color: var(--green-primary);"></i>
+                                <i class="fas fa-leaf fa-4x" style="color: var(--gold-primary);"></i>
                             </div>
-                            <h5 class="certification-name">RSPO Certified</h5>
-                            <p class="text-muted small">Roundtable on Sustainable Palm Oil certification for responsible production.</p>
+                            <h5 class="certification-name" style="color: #000; font-weight: 600;">RSPO Certified</h5>
+                            <p class="small" style="color: #333;">Roundtable on Sustainable Palm Oil certification for responsible production.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -483,8 +432,8 @@ if ($pdo) {
                             <div class="certification-logo mb-3">
                                 <i class="fas fa-shield-alt fa-4x" style="color: var(--gold-primary);"></i>
                             </div>
-                            <h5 class="certification-name">HACCP</h5>
-                            <p class="text-muted small">Hazard Analysis Critical Control Points for food safety management.</p>
+                            <h5 class="certification-name" style="color: #000; font-weight: 600;">HACCP</h5>
+                            <p class="small" style="color: #333;">Hazard Analysis Critical Control Points for food safety management.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -492,8 +441,8 @@ if ($pdo) {
                             <div class="certification-logo mb-3">
                                 <i class="fas fa-trophy fa-4x" style="color: var(--gold-primary);"></i>
                             </div>
-                            <h5 class="certification-name">Excellence Award</h5>
-                            <p class="text-muted small">Industry recognition for outstanding quality and sustainable practices.</p>
+                            <h5 class="certification-name" style="color: #000; font-weight: 600;">Excellence Award</h5>
+                            <p class="small" style="color: #333;">Industry recognition for outstanding quality and sustainable practices.</p>
                         </div>
                     </div>
                 <?php endif; ?>
