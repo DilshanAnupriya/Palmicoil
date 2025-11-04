@@ -93,10 +93,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link active" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -235,7 +235,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="col-lg-8">
                     <h3 class="mb-3">Need Custom Solutions?</h3>
                     <p class="lead mb-4">We offer customized palm oil products tailored to your specific requirements. Contact our team for bulk orders and special formulations.</p>
-                    <a href="contact.html" class="btn btn-light btn-lg">
+                    <a href="contact.php" class="btn btn-light btn-lg">
                         <i class="fas fa-phone me-2"></i>Contact Us Today
                     </a>
                 </div>
@@ -262,8 +262,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.php">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

@@ -167,13 +167,13 @@ $featured_blogs = $featured_stmt->fetchAll();
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="about.html">About Us</a>
+                        <a class="nav-link " href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="blogs.php">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -391,8 +391,8 @@ $featured_blogs = $featured_stmt->fetchAll();
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.php">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

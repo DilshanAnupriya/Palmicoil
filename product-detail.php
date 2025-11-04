@@ -82,10 +82,10 @@ $relatedProducts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -206,7 +206,7 @@ $relatedProducts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="alert alert-info mt-4">
                             <i class="fas fa-info-circle me-2"></i>
                             <strong>Bulk Orders:</strong> Contact us for special pricing on large quantities.
-                            <a href="contact.html" class="alert-link">Get Quote</a>
+                    <a href="contact.php" class="alert-link">Get Quote</a>
                         </div>
                     </div>
                 </div>
@@ -390,8 +390,8 @@ $relatedProducts = $relatedStmt->fetchAll(PDO::FETCH_ASSOC);
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.php">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

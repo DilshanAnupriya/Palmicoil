@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Loading Animation
 function initLoadingAnimation() {
     window.addEventListener('load', function() {
+        // Speed up loader hide to show content sooner
         setTimeout(() => {
             const loading = document.getElementById('loading');
             if (loading) {
@@ -26,9 +27,9 @@ function initLoadingAnimation() {
                 // Trigger entrance animations after loading
                 setTimeout(() => {
                     triggerEntranceAnimations();
-                }, 500);
+                }, 100); // reduce additional delay
             }
-        }, 1200);
+        }, 300); // reduce initial delay
     });
 }
 
@@ -231,27 +232,32 @@ function initSmoothScrolling() {
 function initTypingEffect() {
     const heroTitle = document.querySelector('.hero-title');
     if (!heroTitle) return;
-    
-    const text = heroTitle.textContent;
+
+    // Only run typing effect if explicitly enabled via attribute or class
+    const shouldType = heroTitle.dataset.typing === 'true' || heroTitle.classList.contains('typing-effect');
+    if (!shouldType) return; // leave original text intact for immediate visibility
+
+    const text = heroTitle.textContent.trim();
     heroTitle.textContent = '';
     heroTitle.style.borderRight = '3px solid var(--gold-primary)';
-    
+
     let i = 0;
+    const speed = 40; // faster typing speed
     const typeWriter = () => {
         if (i < text.length) {
             heroTitle.innerHTML += text.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, speed);
         } else {
             // Remove cursor after typing
             setTimeout(() => {
                 heroTitle.style.borderRight = 'none';
-            }, 1000);
+            }, 300);
         }
     };
-    
-    // Start typing effect after loading
-    setTimeout(typeWriter, 2000);
+
+    // Start typing effect immediately when enabled
+    setTimeout(typeWriter, 0);
 }
 
 // Trigger entrance animations

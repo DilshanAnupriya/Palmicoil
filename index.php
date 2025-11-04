@@ -60,13 +60,13 @@ if ($pdo) {
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="blogs.php">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -74,7 +74,7 @@ if ($pdo) {
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section home-hero">
         <!-- Background Slideshow -->
         <div class="hero-slideshow">
             <?php if (!empty($slideshow_images)): ?>
@@ -121,7 +121,7 @@ if ($pdo) {
                         <a href="products.php" class="btn btn-golden btn-lg">
                             <i class="fas fa-shopping-cart me-2"></i> Explore Products
                         </a>
-                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                    <a href="contact.php" class="btn btn-outline-light btn-lg">
                             <i class="fas fa-phone me-2"></i> Get Quote
                         </a>
                     </div>
@@ -564,7 +564,7 @@ if ($pdo) {
                             Join thousands of satisfied customers worldwide. Contact us today for bulk orders, custom requirements, and premium palm oil solutions.
                         </p>
                         <div class="d-flex gap-3 justify-content-center scroll-animate" style="animation-delay: 0.4s;">
-                            <a href="contact.html" class="btn btn-outline-light btn-lg">
+                    <a href="contact.php" class="btn btn-outline-light btn-lg">
                                 <i class="fas fa-envelope me-2"></i> Get Instant Quote
                             </a>
                             <a href="products.php" class="btn btn-outline-light btn-lg">
@@ -596,8 +596,8 @@ if ($pdo) {
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.php">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

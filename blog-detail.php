@@ -483,8 +483,8 @@ $next_blog = $next_stmt->fetch();
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.php">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">

@@ -1,3 +1,50 @@
+<?php
+require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/config/database.php';
+
+$db = getDB();
+
+// Helper: fetch settings by key
+function getSetting($db, $key, $default = '') {
+    try {
+        $stmt = $db->prepare("SELECT setting_value FROM settings WHERE setting_key = ? LIMIT 1");
+        $stmt->execute([$key]);
+        $row = $stmt->fetch();
+        return $row && isset($row['setting_value']) && $row['setting_value'] !== '' ? $row['setting_value'] : $default;
+    } catch (Exception $e) {
+        return $default;
+    }
+}
+
+// Fetch page content for Contact
+$contactPage = null;
+try {
+    $stmt = $db->prepare("SELECT * FROM pages WHERE slug = 'contact' AND status = 'published' LIMIT 1");
+    $stmt->execute();
+    $contactPage = $stmt->fetch();
+} catch (Exception $e) {
+    $contactPage = null;
+}
+
+// Fetch FAQs
+$faqs = [];
+try {
+    $stmt = $db->query("SELECT * FROM faqs WHERE status = 'active' ORDER BY sort_order ASC, created_at DESC");
+    $faqs = $stmt->fetchAll();
+} catch (Exception $e) {
+    $faqs = [];
+}
+
+// Settings
+$contactAddress = getSetting($db, 'contact_address', "123 Palm Street\nOil City, PC 12345\nUnited States");
+$contactPhone   = getSetting($db, 'contact_phone', '+1 (555) 123-4567');
+$contactEmail   = getSetting($db, 'contact_email', 'info@palmoilco.com');
+$businessHours  = getSetting($db, 'business_hours', "Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: Closed");
+
+// Build Google Maps URL from address
+$mapsQuery = urlencode(str_replace("\n", ' ', $contactAddress));
+$mapsUrl = "https://maps.google.com/maps?q=" . $mapsQuery;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +52,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Palm Oil Company</title>
     <meta name="description" content="Get in touch with our palm oil experts. Contact us for inquiries, bulk orders, and custom solutions.">
-    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,9 +73,9 @@
     </div>
 
     <!-- Navigation -->
-   <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand animate-pulse" href="index.html">
+            <a class="navbar-brand animate-pulse" href="index.php">
                 <img src="assets/white Logo (1)_page-0001.jpg" alt="Palmic Oil" class="navbar-logo">
                 <span class="company-name">Palmic Oil</span>
             </a>
@@ -39,13 +85,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link " href="index.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="about.php">About Us</a>
+                        <a class="nav-link" href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="blogs.php">Blog</a>
@@ -58,7 +104,6 @@
         </div>
     </nav>
 
-
     <!-- Hero Section -->
     <section class="contact-hero text-white text-center position-relative overflow-hidden">
         <div class="hero-background"></div>
@@ -68,12 +113,20 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <h1 class="display-3 fw-bold mb-4 fade-in-up">Get In Touch</h1>
-                    <p class="lead mb-5 fade-in-up" style="animation-delay: 0.2s;">Connect with our palm oil experts for inquiries, bulk orders, partnerships, and custom solutions. We're committed to providing exceptional service and sustainable products.</p>
+                    <p class="lead mb-5 fade-in-up" style="animation-delay: 0.2s;">
+                        <?php
+                        if ($contactPage && !empty($contactPage['content'])) {
+                            echo $contactPage['content'];
+                        } else {
+                            echo 'Connect with our palm oil experts for inquiries, bulk orders, partnerships, and custom solutions. We\'re committed to providing exceptional service and sustainable products.';
+                        }
+                        ?>
+                    </p>
                     <div class="hero-cta-buttons fade-in-up" style="animation-delay: 0.4s;">
                         <a href="#contactForm" class="btn btn-golden btn-lg me-3 mb-3">
                             <i class="fas fa-envelope me-2"></i>Send Message
                         </a>
-                        <a href="tel:+15551234567" class="btn btn-outline-light btn-lg mb-3">
+                        <a href="tel:<?= htmlspecialchars($contactPhone) ?>" class="btn btn-outline-light btn-lg mb-3">
                             <i class="fas fa-phone me-2"></i>Call Now
                         </a>
                     </div>
@@ -114,10 +167,8 @@
                             <i class="fas fa-map-marker-alt fa-3x"></i>
                         </div>
                         <h5 class="golden-text">Our Location</h5>
-                        <p class="text-muted mb-0">
-                            123 Palm Street<br>
-                            Oil City, PC 12345<br>
-                            United States
+                        <p class="text-muted mb-0" style="white-space: pre-line;">
+                            <?= htmlspecialchars($contactAddress) ?>
                         </p>
                     </div>
                 </div>
@@ -127,11 +178,9 @@
                         <div class="feature-icon-modern mb-3">
                             <i class="fas fa-phone fa-3x"></i>
                         </div>
-                        <h5 class="golden-text">Phone & Fax</h5>
+                        <h5 class="golden-text">Phone</h5>
                         <p class="text-muted mb-0">
-                            Phone: +1 (555) 123-4567<br>
-                            Toll Free: +1 (800) 123-4567<br>
-                            Fax: +1 (555) 123-4568
+                            Phone: <?= htmlspecialchars($contactPhone) ?>
                         </p>
                     </div>
                 </div>
@@ -143,9 +192,7 @@
                         </div>
                         <h5 class="golden-text">Email</h5>
                         <p class="text-muted mb-0">
-                            General: info@palmoilco.com<br>
-                            Sales: sales@palmoilco.com<br>
-                            Support: support@palmoilco.com
+                            <?= htmlspecialchars($contactEmail) ?>
                         </p>
                     </div>
                 </div>
@@ -163,7 +210,7 @@
                         <form id="contactForm" action="contact-handler.php" method="POST" class="modern-form">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <label for="firstName" class="form-label">First Name *</nlabel>
                                     <input type="text" class="form-control modern-input" id="firstName" name="first_name" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -229,19 +276,13 @@
                         <h5 class="mb-3 golden-text">
                             <i class="fas fa-clock green-text me-2"></i>Business Hours
                         </h5>
+                        <?php $hoursLines = preg_split('/\r\n|\r|\n/', $businessHours); ?>
                         <ul class="list-unstyled mb-0">
-                            <li class="d-flex justify-content-between mb-2 info-item">
-                                <span>Monday - Friday:</span>
-                                <span class="fw-bold">8:00 AM - 6:00 PM</span>
-                            </li>
-                            <li class="d-flex justify-content-between mb-2 info-item">
-                                <span>Saturday:</span>
-                                <span class="fw-bold">9:00 AM - 4:00 PM</span>
-                            </li>
-                            <li class="d-flex justify-content-between info-item">
-                                <span>Sunday:</span>
-                                <span class="fw-bold text-muted">Closed</span>
-                            </li>
+                            <?php foreach ($hoursLines as $line): ?>
+                                <li class="d-flex justify-content-between mb-2 info-item">
+                                    <span><?= htmlspecialchars($line) ?></span>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
 
@@ -268,7 +309,7 @@
                             <i class="fas fa-handshake green-text me-2"></i>Partnership
                         </h5>
                         <p class="mb-3">Interested in becoming a distributor or partner? We'd love to hear from you.</p>
-                        <a href="mailto:partnership@palmoilco.com" class="btn btn-green btn-hover-effect">
+                        <a href="mailto:<?= htmlspecialchars($contactEmail) ?>" class="btn btn-green btn-hover-effect">
                             <i class="fas fa-envelope me-2"></i>Partnership Inquiry
                         </a>
                     </div>
@@ -285,7 +326,7 @@
                     <div class="map-container-modern position-relative" style="height: 500px;">
                         <!-- Google Maps Embed -->
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-74.0059413!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316e5b7c5d%3A0x1234567890abcdef!2s123%20Palm%20Street%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            src="https://www.google.com/maps?q=<?= urlencode(str_replace("\n", ' ', $contactAddress)) ?>&output=embed"
                             width="100%" 
                             height="100%" 
                             style="border:0;" 
@@ -302,18 +343,16 @@
                                     <i class="fas fa-map-marker-alt me-2"></i>Visit Our Office
                                 </h5>
                                 <p class="mb-2"><strong>Address:</strong></p>
-                                <p class="mb-3 text-muted">
-                                    123 Palm Street<br>
-                                    Oil City, PC 12345<br>
-                                    United States
+                                <p class="mb-3 text-muted" style="white-space: pre-line;">
+                                    <?= htmlspecialchars($contactAddress) ?>
                                 </p>
                                 <div class="d-flex flex-column gap-2">
-                                    <a href="https://maps.google.com/maps?q=123+Palm+Street,+Oil+City,+PC+12345" 
+                                    <a href="<?= htmlspecialchars($mapsUrl) ?>" 
                                        target="_blank" 
                                        class="btn btn-golden btn-sm">
                                         <i class="fas fa-directions me-2"></i>Get Directions
                                     </a>
-                                    <a href="tel:+15551234567" class="btn btn-outline-primary btn-sm">
+                                    <a href="tel:<?= htmlspecialchars($contactPhone) ?>" class="btn btn-outline-primary btn-sm">
                                         <i class="fas fa-phone me-2"></i>Call Us
                                     </a>
                                 </div>
@@ -350,222 +389,39 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="accordion modern-accordion scroll-animate" id="faqAccordion" data-animation="fadeInUp" data-delay="0.4">
-                        <div class="accordion-item modern-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button modern-accordion-button" type="button" data-bs-toggle="collapse" 
-                                        data-bs-target="#faq1">
-                                    What is your minimum order quantity?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body modern-accordion-body">
-                                    Our minimum order quantity varies by product. For retail customers, there's no minimum. 
-                                    For wholesale orders, the minimum is typically 100 units. Contact us for specific product requirements.
+                        <?php if (!empty($faqs)): ?>
+                            <?php $i = 0; foreach ($faqs as $faq): $i++; $collapseId = 'faq' . $i; ?>
+                                <div class="accordion-item modern-accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button modern-accordion-button" type="button" data-bs-toggle="collapse" 
+                                                data-bs-target="#<?= $collapseId ?>">
+                                            <?= htmlspecialchars($faq['question']) ?>
+                                        </button>
+                                    </h2>
+                                    <div id="<?= $collapseId ?>" class="accordion-collapse collapse <?= $i === 1 ? 'show' : '' ?>" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body modern-accordion-body">
+                                            <?= nl2br(htmlspecialchars($faq['answer'])) ?>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item modern-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button modern-accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                        data-bs-target="#faq2">
-                                    Do you offer international shipping?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body modern-accordion-body">
-                                    Yes, we ship internationally to most countries. Shipping costs and delivery times vary by destination. 
-                                    Please contact us for a shipping quote to your specific location.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item modern-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button modern-accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                        data-bs-target="#faq3">
-                                    Are your products certified sustainable?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body modern-accordion-body">
-                                    Yes, all our palm oil products are RSPO (Roundtable on Sustainable Palm Oil) certified. 
-                                    We are committed to sustainable and responsible sourcing practices.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item modern-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button modern-accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                        data-bs-target="#faq4">
-                                    Can I get custom packaging for bulk orders?
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body modern-accordion-body">
-                                    Absolutely! We offer custom packaging solutions for bulk orders. This includes custom labeling, 
-                                    packaging sizes, and branding options. Contact our sales team to discuss your requirements.
-                                </div>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="text-muted">No FAQs available yet. Please add FAQs from the admin dashboard.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-     <footer class="footer">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5 class="mb-3">🌴 Palm Oil Co.</h5>
-                    <p class="text-light mb-4">Leading supplier of premium golden quality palm oil products with an unwavering commitment to sustainability, excellence, and customer satisfaction.</p>
-                    <div class="social-links">
-                        <a href="#" class="animate-pulse"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="animate-pulse" style="animation-delay: 0.1s;"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="animate-pulse" style="animation-delay: 0.2s;"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="animate-pulse" style="animation-delay: 0.3s;"><i class="fab fa-instagram fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <h6 class="mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.php">Products</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h6 class="mb-3">Premium Products</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Golden Crude Palm Oil</a></li>
-                        <li><a href="#">Premium Refined Palm Oil</a></li>
-                        <li><a href="#">Specialty Palm Kernel Oil</a></li>
-                        <li><a href="#">Custom Blends</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h6 class="mb-3">Contact Info</h6>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--gold-primary);"></i> 123 Golden Palm Street, Oil City</li>
-                        <li><i class="fas fa-phone me-2" style="color: var(--gold-primary);"></i> +1-234-567-8900</li>
-                        <li><i class="fas fa-envelope me-2" style="color: var(--gold-primary);"></i> info@palmicoil.com</li>
-                        <li><i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 24/7 Customer Support</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4" style="border-color: var(--gold-primary);">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Palm Oil Company. All rights reserved. Golden Excellence Since 2009.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="me-3">Privacy Policy</a>
-                    <a href="#" class="me-3">Terms of Service</a>
-                    <a href="#">Sustainability</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="main.js"></script>
-    
-    <!-- Contact Page Specific JS -->
+    <script src="assets/js/main.js"></script>
     <script>
-        // Map control functions
-        function toggleMapType() {
-            // This would integrate with Google Maps API for map type switching
-            console.log('Toggle map type');
-        }
-        
-        function centerMap() {
-            // This would center the map on the business location
-            console.log('Center map');
-        }
-        
-        // Enhanced form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Add loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Show success message
-                showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-        
-        // Notification system
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.className = `alert alert-${type === 'success' ? 'success' : 'info'} alert-dismissible fade show position-fixed`;
-            notification.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
-            notification.innerHTML = `
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 5000);
-        }
-        
-        // Smooth scroll for CTA buttons
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add animation on scroll for stats
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe stat items
-        document.querySelectorAll('.stat-item').forEach(item => {
-            observer.observe(item);
-        });
+        // Map controls placeholders – customization via main.js if needed
+        function toggleMapType() { /* handled by iframe limitations */ }
+        function centerMap() { /* handled by iframe limitations */ }
     </script>
 </body>
 </html>
